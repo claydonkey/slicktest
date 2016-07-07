@@ -16,9 +16,11 @@
 		    "health_checks": [],
 		    "volumes": [],
 			 "env": {
-			"SLICK_DB": "jdbc:mysql://mysql.backend.slicktest",
-			"SLICK_DB_USER": "",
-			"SLICK_DB_PASSWORD": "example"
+			 SLICK_DB_IP_ADDRESS: "192.168.99.100"
+             SLICK_DB_PORT: "3306"
+             SLICK_DB_NAME: "slicktest"
+             SLICK_DB_USER: "root"
+             SLICK_DB_PASSWORD: "example"
 		    },
 		    "port_mappings": [
 			{
