@@ -15,6 +15,11 @@
 		    "id": "slickapp",
 		    "health_checks": [],
 		    "volumes": [],
+			 "env": {
+			"SLICK_DB": "jdbc:mysql://mysql.backend.slicktest",
+			"SLICK_DB_USER": "",
+			"SLICK_DB_PASSWORD": "example"
+		    }
 		    "port_mappings": [
 			{
 			    "container_port": 9000

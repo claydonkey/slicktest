@@ -6,7 +6,7 @@ services:
     # volumes:
       #- /home/docker/openshift/slicktest/target/docker/stage/opt:/opt
     environment:
-      SLICK_DB: example
+      SLICK_DB: jdbc:mysql://192.168.99.100:3306/slicktest
       SLICK_DB_USER: root  
       SLICK_DB_PASSWORD: example
     links:
