@@ -7,10 +7,10 @@
 		{
 		    "env": {},
 		    "domain": {
-			"uri": "slicktest.sloppy.zone"
+			"uri": "slick-project.sloppy.zone"
 		    },
 		    "mem": 512,
-		    "image": "claydonkey/sloppy-slick",
+		    "image": "claydonkey/sloppy-slick:latest",
 		    "instances": 1,
 		    "id": "slickapp",
 		    "health_checks": [],
