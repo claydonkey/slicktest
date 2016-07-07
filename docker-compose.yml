@@ -5,6 +5,10 @@ services:
     image: claydonkey/sloppy-slick:latest
     # volumes:
       #- /home/docker/openshift/slicktest/target/docker/stage/opt:/opt
+    environment:
+      SLICK_DB: example
+      SLICK_DB_USER: root  
+      SLICK_DB_PASSWORD: example
     links:
       - db:mysql
     ports:
