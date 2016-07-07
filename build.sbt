@@ -1,4 +1,4 @@
-name := """slickTest"""
+name := """sloppy-slick"""
 
 version := "1.0-SNAPSHOT"
 

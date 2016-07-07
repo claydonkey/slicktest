@@ -1,9 +1,9 @@
 logs
-target
-!target/docker/
 /.idea
 /.idea_modules
 /.classpath
 /.project
 /.settings
 /RUNNING_PID
+!/target/
+/target/docker/Dockerfile

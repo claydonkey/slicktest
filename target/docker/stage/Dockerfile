@@ -4,5 +4,5 @@ ADD opt /opt
 RUN ["chown", "-R", "daemon:daemon", "."]
 EXPOSE 9000 9090
 USER daemon
-ENTRYPOINT ["bin/slicktest"]
+ENTRYPOINT ["bin/sloppy-slick"]
 CMD []
