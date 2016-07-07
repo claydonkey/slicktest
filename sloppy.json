@@ -1,5 +1,5 @@
 {
-    "project": "slick-project",
+    "project": "sloppy-slick",
     "services": [
 	{
 	    "id": "slick",
@@ -19,9 +19,19 @@
 		    "SLICK_DB_IP_ADDRESS": "mysql.backend.slicktest",
 			"SLICK_DB_PORT": "3306",
 			"SLICK_DB_NAME": "slicktest",
-			"SLICK_DB_USER": "root",
+			"SLICK_DB_USER": "test",
 			"SLICK_DB_PASSWORD": "example"
 		    },
+			"health_checks": [
+            {
+              "timeout_seconds": 10,
+              "interval_seconds": 10,
+              "max_consecutive_failures": 3,
+              "path": "/",
+              "type": "HTTP",
+              "grace_period_seconds": 3
+            }
+          ],
 		    "port_mappings": [
 			{
 			    "container_port": 9000
@@ -58,7 +68,7 @@
 		    },
 		    "env": {
 			"MYSQL_ROOT_PASSWORD": "example",
-			"MYSQL_USER": "",
+			"MYSQL_USER": "test",
 			"MYSQL_PASSWORD": "example",
 			"MYSQL_DATABASE": "slicktest"
 		    }
