@@ -5,6 +5,8 @@ services:
     #image: claydonkey/sloppy-slick:local
     # volumes:
     #- /home/docker/openshift/slicktest/target/docker/stage/opt:/opt
+    environment:
+       SLICK_DB_SETTINGS: jdbc:mysql://192.168.99.100:3306/slicktest
     links:
       - db:mysql
     ports:
