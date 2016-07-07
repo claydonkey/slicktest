@@ -1,8 +1,8 @@
 {
-    "project": "slicktest",
+    "project": "slick-project",
     "services": [
 	{
-	    "id": "slicktest",
+	    "id": "slick",
 	    "apps": [
 		{
 		    "env": {},
@@ -10,15 +10,14 @@
 			"uri": "slicktest.sloppy.zone"
 		    },
 		    "mem": 512,
-		    "image": "claydonkey/slicktest:1.1-SNAPSHOT",
+		    "image": "claydonkey/sloppy-slick",
 		    "instances": 1,
-		    "id": "slicktest",
+		    "id": "slickapp",
 		    "health_checks": [],
 		    "volumes": [],
 		    "port_mappings": [
 			{
-			    "container_port": 80,
-			    "protocol": "tcp"
+			    "container_port": 9000
 			}
 		    ],
 		    "dependencies": [
@@ -52,7 +51,7 @@
 		    },
 		    "env": {
 			"MYSQL_ROOT_PASSWORD": "example",
-			"MYSQL_USER": "root",
+			"MYSQL_USER": "",
 			"MYSQL_PASSWORD": "example",
 			"MYSQL_DATABASE": "slicktest"
 		    }
