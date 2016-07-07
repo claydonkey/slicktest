@@ -1,23 +1,24 @@
 {
-    "project": "slick-project",
+    "project": "sloppy-slick",
     "services": [
 	{
-	    "id": "slick",
+	    "id": "sloppy-slick",
 	    "apps": [
 		{
 		    "env": {},
 		    "domain": {
-			"uri": "slicktest.sloppy.zone"
+			"uri": "sloppy-slick.sloppy.zone"
 		    },
 		    "mem": 512,
-		    "image": "claydonkey/sloppy-slick",
+		    "image": "claydonkey/sloppy-slick:1.0-SNAPSHOT",
 		    "instances": 1,
-		    "id": "slickapp",
+		    "id": "slicktest",
 		    "health_checks": [],
 		    "volumes": [],
 		    "port_mappings": [
 			{
-			    "container_port": 9000
+			    "container_port": 9000,
+				"protocol": "tcp"
 			}
 		    ],
 		    "dependencies": [
@@ -31,30 +32,18 @@
 	    "apps": [
 		{
 		    "id": "mysql",
-		    "instances": 1,
-		    "mem": 512,
-		    "port_mappings": [
-			{
-			    "container_port": 3306,
-			    "protocol": "tcp"
-			}
-		    ],
-		    "image": "claydonkey/mysql",
-		    "_comment volumes": [
-			{
-			    "container_path": "/var/lib/mysql",
-			    "size": "8GB"
-			}
-		    ],
-		    "domain": {
-			"uri": "claydonkeysql.sloppy.zone"
-		    },
-		    "env": {
+			 "env": {
 			"MYSQL_ROOT_PASSWORD": "example",
-			"MYSQL_USER": "",
+			"MYSQL_USER": "root",
 			"MYSQL_PASSWORD": "example",
 			"MYSQL_DATABASE": "slicktest"
-		    }
+		    },
+		    "instances": 1,
+		    "mem": 512,		    
+		    "image": "claydonkey/mysql",		   
+		    "domain": {
+			"uri": "claydonkeysql.sloppy.zone"
+		    }		   
 		}
 	    ]
 	}
