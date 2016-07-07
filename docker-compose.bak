@@ -1,5 +1,5 @@
 slicktest:
-  image: claydonkey/slicktest
+  image: claydonkey/sloppy-slick
   volumes:
   # - ./target/docker/stage/opt:/opt
   - /home/docker/openshift/slicktest/target/docker/stage/opt:/opt
