@@ -1,59 +1,56 @@
 {
-    "project": "sloppy-slick",
+"project": "scalaslick",
     "services": [
-	{
-	    "id": "sloppy-slick",
-	    "apps": [
-		{
-		    "env": {},
-		    "domain": {
-			"uri": "sloppy-slick.sloppy.zone"
-		    },
-		    "mem": 512,
-		    "image": "claydonkey/sloppy-slick:1.0-SNAPSHOT",
-		    "instances": 1,
-		    "id": "slicktest",
-		    "health_checks": [],
-		    "volumes": [],
-			 "env": {
-			 SLICK_DB_IP_ADDRESS: "192.168.99.100"
-             SLICK_DB_PORT: "3306"
-             SLICK_DB_NAME: "slicktest"
-             SLICK_DB_USER: "root"
-             SLICK_DB_PASSWORD: "example"
-		    },
-		    "port_mappings": [
-			{
-			    "container_port": 9000,
-				"protocol": "tcp"
-			}
-		    ],
-		    "dependencies": [
-			"../../backend/mysql"
-		    ]
-		}
-	    ]
-	},
-	{
-	    "id": "backend",
-	    "apps": [
-		{
-		    "id": "mysql",
-			 "env": {
-			"MYSQL_ROOT_PASSWORD": "example",
-			"MYSQL_USER": "root",
-			"MYSQL_PASSWORD": "example",
-			"MYSQL_DATABASE": "slicktest"
-		    },
-		    "instances": 1,
-		    "mem": 512,		    
-		    "image": "claydonkey/mysql",		   
-		    "domain": {
-			"uri": "claydonkeysql.sloppy.zone"
-		    }		   
-		}
-	    ]
-	}
+        {
+            "id": "frontend",
+            "apps": [
+                {
+                    "env": {},
+                    "domain": {
+                        "uri":"$URI",
+                        "type":"HTTP"
+                    },
+                    "mem": 512,
+                    "image": "claydonkey/sloppy-slick:1.0-SNAPSHOT",
+                    "instances": 1,
+                    "id": "play",
+                    "health_checks": [],
+                    "volumes": [],
+                        "env": {
+		SLICK_DB_IP_ADDRESS: "mysql.backend.scalaslick"
+		SLICK_DB_PORT: "3306"
+		SLICK_DB_NAME: "scalaslick"
+		SLICK_DB_USER: "$MYSQLUSER"
+		SLICK_DB_PASSWORD: "$MYSQLPASSWORD"
+                    },
+                    "port_mappings": [
+                        {
+                            "container_port": 9000,
+                                "protocol": "tcp"
+                        }
+                    ],
+                    "dependencies": [
+                        "../../backend/mysql"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "backend",
+            "apps": [
+                {
+                    "id": "mysql",
+                         "env": {
+                        "MYSQL_ROOT_PASSWORD": "$ROOTPW",
+                        "MYSQL_USER": "$MYSQLUSER",
+                        "MYSQL_PASSWORD": "$MYSQLPASSWORD",
+                        "MYSQL_DATABASE": "slicktest"
+                    },
+                    "instances": 1,
+                    "mem": 512,
+                    "image": "mysql"
+                }
+            ]
+        }
     ]
 }
-
