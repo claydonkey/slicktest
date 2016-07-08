@@ -1,7 +1,7 @@
 FROM java:latest
 MAINTAINER Anthony Campbell <anthony@claydonkey.com>
 WORKDIR /opt/docker
-ADD /target/docker/stage/opt /opt
+#ADD /target/docker/stage/opt /opt
 RUN ["chown", "-R", "daemon:daemon", "."]
 RUN ["ls", "bin", "-lt"]
 RUN ["chmod", "+x",  "bin/sloppy-slick"]

@@ -2,7 +2,9 @@ version: '2'
 services:
 
   web:
-    image: claydonkey/sloppy-slick:latest   
+    image: claydonkey/sloppy-slick:local
+    volumes:
+     - /home/docker/openshift/slickTest/target/docker/stage/opt:/opt
     environment:
       SLICK_DB_IP_ADDRESS: 192.168.99.100 
       SLICK_DB_PORT: 3306
@@ -14,7 +16,9 @@ services:
     ports:
       - 80:9000
   db:
-    image: mysql   
+    image: mysql
+    volumes:
+      - /home/docker/openshift/slickTest/data:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
