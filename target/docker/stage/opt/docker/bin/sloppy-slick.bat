@@ -20,7 +20,7 @@ for %%x in (!cmdcmdline!) do if %%~x==/c set DOUBLECLICKED=1
 rem FIRST we load the config file of extra options.
 set "CFG_FILE=%SLOPPY_SLICK_HOME%\SLOPPY_SLICK_config.txt"
 set CFG_OPTS=
-if exist %CFG_FILE% (
+if exist "%CFG_FILE%" (
   FOR /F "tokens=* eol=# usebackq delims=" %%i IN ("%CFG_FILE%") DO (
     set DO_NOT_REUSE_ME=%%i
     rem ZOMG (Part #2) WE use !! here to delay the expansion of
