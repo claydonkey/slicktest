@@ -1,7 +1,7 @@
 version: '2'
 services:
   web:
-    image: claydonkey/sloppy-slick:1.0-SNAPSHOT
+    image: claydonkey/sloppy-slick:1.1-SNAPSHOT
     #image: claydonkey/sloppy-slick:local
     # volumes:
     #- /home/docker/openshift/slicktest/target/docker/stage/opt:/opt
